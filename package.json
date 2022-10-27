@@ -6,7 +6,9 @@
   "scripts": {},
   "author": "Serverless.com",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "serverless-appsync-plugin": "^1.14.0"
+  },
   "devDependencies": {
     "aws-sdk": "^2.475.0"
   }
