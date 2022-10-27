@@ -38,6 +38,6 @@ functions:
           method: post
           cors: true
 
-output:
+outputs:
   var1: ${self:custom.nenv}
   var2: ${self:custom.name}
