@@ -19,6 +19,7 @@ custom:
   appSync:
     name: NgocGraph
     schema: graphql/schema.graphql
+    authenticationType: API_KEY
     # functionConfigurationsLocation: # defaults to mappingTemplatesLocation (mapping-templates)
     # functionConfigurations:
     #   - name: # function name
