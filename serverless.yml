@@ -3,7 +3,8 @@ app: workshop # Enter your application name here
 service: fullstack-restapi # update
 
 plugins:
-   - serverless-appsync-plugin
+  - serverless-appsync-plugin
+  - serverless-python-requirements
 
 params:
   default:

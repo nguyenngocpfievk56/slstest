@@ -2,3 +2,8 @@ type User {
   name: String
   age: Int
 }
+
+type Post {
+  id: Int!
+  title: String!
+}
