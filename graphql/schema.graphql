@@ -1,0 +1,11 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+type User {
+  name: String
+  age: Int
+}
+type Query {
+  getUser(id: Int): User
+}

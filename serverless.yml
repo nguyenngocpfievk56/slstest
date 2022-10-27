@@ -16,6 +16,31 @@ params:
 custom:
   nenv: ${param:env, "ngocnh"}
   name: ${param:name, param:name}
+  appSync:
+    name: NgocGraph
+    schema: graphql/schema.graphql
+    # functionConfigurationsLocation: # defaults to mappingTemplatesLocation (mapping-templates)
+    # functionConfigurations:
+    #   - name: # function name
+    #     dataSource: # data source name
+    #     request: # request mapping template name | defaults to {name}.request.vtl
+    #     response: # reponse mapping template name | defaults to {name}.response.vtl
+    #     maxBatchSize: # maximum number of requests for BatchInvoke operations
+    # dataSources:
+    #   - type: AWS_LAMBDA
+    #     name: # data source name
+    #     description: 'Lambda DataSource'
+    #     config:
+    #       functionName: graphql # The function name in your serverless.yml. Ignored if lambdaFunctionArn is provided.
+    #       lambdaFunctionArn: { Fn::GetAtt: [GraphqlLambdaFunction, Arn] } # Where GraphqlLambdaFunction is the lambda function cloudformation resource created by serverless for the serverless function named graphql
+    #       serviceRoleArn: { Fn::GetAtt: [AppSyncLambdaServiceRole, Arn] } # Where AppSyncLambdaServiceRole is an IAM role defined in Resources
+    #       iamRoleStatements: # custom IAM Role statements for this DataSource. Ignored if `serviceRoleArn` is present. Auto-generated if both `serviceRoleArn` and `iamRoleStatements` are omitted
+    #         - Effect: 'Allow'
+    #           Action:
+    #             - 'lambda:invokeFunction'
+    #           Resource:
+    #             - 'arn:aws:lambda:{REGION}:{ACCOUNT_ID}:myFunction'
+    #             - 'arn:aws:lambda:{REGION}:{ACCOUNT_ID}:myFunction:*'
 
 provider:
   name: aws
