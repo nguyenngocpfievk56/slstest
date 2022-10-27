@@ -14,6 +14,9 @@ provider:
       name: buihong
     prod:
       name: aki
+  custom:
+    nenv: ${param:env, ngocnh}
+    name: ${param:name}
   environment:
     database_submissions_name: ${output:${self:app}:${param:env, self:provider.stage}::database.database_submissions_name}
     database_submissions_region: ${output:workshop:${param:env, self:provider.stage}::database.database_submissions_region}
@@ -36,5 +39,5 @@ functions:
           cors: true
 
 output:
-  var1: ${param:env}
-  var2: ${param:name}
+  var1: ${self:custom.nenv}
+  var2: ${self:custom.name}
