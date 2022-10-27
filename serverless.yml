@@ -20,9 +20,15 @@ custom:
     name: NgocGraph
     schema: graphql/schema.graphql
     authenticationType: API_KEY
+    defaultMappingTemplates: # default templates. Useful for Lambda templates that are often repetitive. Will be used if the template is not specified in a resolver
+      request: false
+      response: false
     functionConfigurations:
       - name: getUser
         dataSource: getUser
+        # request: # request mapping template name | defaults to {name}.request.vtl
+        # response: # reponse mapping template name | defaults to {name}.response.vtl
+        # maxBatchSize: # maximum number of requests for BatchInvoke operations
     dataSources:
       - type: AWS_LAMBDA
         name: getUser
