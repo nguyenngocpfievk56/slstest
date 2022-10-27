@@ -12,7 +12,7 @@ params:
 
 custom:
   nenv: ${param:env, "ngocnh"}
-  name: ${param:name}
+  name: ${param:name, param:name}
 
 provider:
   name: aws
