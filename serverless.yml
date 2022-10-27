@@ -7,6 +7,13 @@ provider:
   runtime: nodejs14.x
   stage: dev
   region: us-west-2
+  params:
+    default:
+      name: nguyenngoc
+    dev:
+      name: buihong
+    prod:
+      name: aki
   environment:
     database_submissions_name: ${output:${self:app}:${param:env, self:provider.stage}::database.database_submissions_name}
     database_submissions_region: ${output:workshop:${param:env, self:provider.stage}::database.database_submissions_region}
@@ -28,3 +35,6 @@ functions:
           method: post
           cors: true
 
+output:
+  var1: ${param:env}
+  var2: ${param:name}
