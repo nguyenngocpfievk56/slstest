@@ -20,7 +20,7 @@ custom:
     name: NgocGraph
     schema: graphql/schema.graphql
     authenticationType: API_KEY
-    defaultMappingTemplates: # default templates. Useful for Lambda templates that are often repetitive. Will be used if the template is not specified in a resolver
+    defaultMappingTemplates:
       request: false
       response: false
     functionConfigurations:
