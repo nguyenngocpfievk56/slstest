@@ -20,9 +20,9 @@ custom:
     name: NgocGraph
     schema: graphql/schema.graphql
     authenticationType: API_KEY
-    defaultMappingTemplates:
-      request: false
-      response: false
+    # defaultMappingTemplates:
+    #   request: false
+    #   response: false
     functionConfigurations:
       - name: getUser
         dataSource: getUser
