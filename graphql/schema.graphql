@@ -9,3 +9,7 @@ type User {
 type Query {
   getUser(id: Int): User
 }
+
+type Mutation {
+  addUser(name: String, age: Int): User
+}
