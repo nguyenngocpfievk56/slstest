@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "preinstall": "rm graphql/schema.graphql && cat *.graphql >> schema.graphql"
+  },
   "author": "Serverless.com",
   "license": "MIT",
   "dependencies": {
