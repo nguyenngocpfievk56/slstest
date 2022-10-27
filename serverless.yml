@@ -24,7 +24,7 @@ custom:
       request: false
       response: false
     mappingTemplates:
-      - dataSource: awsLambdaDataSource
+      - dataSource: getUser
         type: Query #Query, Mutation, Subscription
         field: getUser
         # request: "helloWorld-request-mapping-template.txt"
