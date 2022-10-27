@@ -2,21 +2,23 @@ org: ngocnhelife # Enter your tenant name here
 app: workshop # Enter your application name here
 service: fullstack-restapi # update
 
+params:
+  default:
+    name: nguyenngoc
+  dev:
+    name: buihong
+  prod:
+    name: aki
+
+custom:
+  nenv: ${param:env, "ngocnh"}
+  name: ${param:name}
+
 provider:
   name: aws
   runtime: nodejs14.x
   stage: dev
   region: us-west-2
-  params:
-    default:
-      name: nguyenngoc
-    dev:
-      name: buihong
-    prod:
-      name: aki
-  custom:
-    nenv: ${param:env, "ngocnh"}
-    name: ${param:name}
   environment:
     database_submissions_name: ${output:${self:app}:${param:env, self:provider.stage}::database.database_submissions_name}
     database_submissions_region: ${output:workshop:${param:env, self:provider.stage}::database.database_submissions_region}
