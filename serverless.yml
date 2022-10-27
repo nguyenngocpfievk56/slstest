@@ -15,7 +15,7 @@ provider:
     prod:
       name: aki
   custom:
-    nenv: ${param:env, ngocnh}
+    nenv: ${param:env, "ngocnh"}
     name: ${param:name}
   environment:
     database_submissions_name: ${output:${self:app}:${param:env, self:provider.stage}::database.database_submissions_name}
