@@ -3,11 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "preinstall": "cat graphql/*.graphql >> graphql/schema.graphql",
+    "before:deploy:deploy": "rm -rf node_modules"
+  },
   "author": "Serverless.com",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "serverless-appsync-plugin": "^1.14.0"
+  },
   "devDependencies": {
-    "aws-sdk": "^2.475.0"
+    "aws-sdk": "^2.475.0",
+    "serverless-python-requirements": "^6.0.0"
   }
 }

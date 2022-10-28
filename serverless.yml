@@ -2,14 +2,51 @@ org: ngocnhelife # Enter your tenant name here
 app: workshop # Enter your application name here
 service: fullstack-restapi # update
 
+plugins:
+  - serverless-appsync-plugin
+  # - serverless-python-requirements
+params:
+  default:
+    name: nguyenngoc
+  dev:
+    name: buihong
+  prod:
+    name: aki
+
+custom:
+  nenv: ${param:env, "ngocnh"}
+  name: ${param:name, param:name}
+  appSync:
+    name: NgocGraph
+    schema: graphql/schema.graphql
+    authenticationType: API_KEY
+    defaultMappingTemplates:
+      request: false
+      response: false
+    mappingTemplates:
+      - dataSource: getUser
+        type: Query #Query, Mutation, Subscription
+        field: getUser
+        # request: "helloWorld-request-mapping-template.txt"
+        # response: "helloWorld-response-mapping-template.txt"
+    dataSources:
+      - type: AWS_LAMBDA
+        name: getUser
+        config:
+          functionName: getUser
+          # iamRoleStatements: # custom IAM Role statements for this DataSource. Ignored if `serviceRoleArn` is present. Auto-generated if both `serviceRoleArn` and `iamRoleStatements` are omitted
+          #   - Effect: 'Allow'
+          #     Action:
+          #       - 'lambda:invokeFunction'
+          #     Resource:
+          #       - 'arn:aws:lambda:{REGION}:{ACCOUNT_ID}:myFunction'
+          #       - 'arn:aws:lambda:{REGION}:{ACCOUNT_ID}:myFunction:*'
+
 provider:
   name: aws
-  runtime: nodejs14.x
+  runtime: python3.8
   stage: dev
   region: us-west-2
-  environment:
-    database_submissions_name: ${output:${self:app}:${param:env, self:provider.stage}::database.database_submissions_name}
-    database_submissions_region: ${output:workshop:${param:env, self:provider.stage}::database.database_submissions_region}
   iam:
     role:
       statements:
@@ -19,12 +56,10 @@ provider:
           Resource: "arn:aws:dynamodb:*:*:table/${output:workshop:${param:env, self:provider.stage}::database.database_submissions_name}"
 
 functions:
-  formSubmit:
-    handler: index.submit
+  getUser:
+    handler: functions/getUser.lambda_handler
     timeout: 10
-    events:
-      - http:
-          path: submit
-          method: post
-          cors: true
 
+outputs:
+  var1: ${self:custom.nenv}
+  var2: ${self:custom.name}
