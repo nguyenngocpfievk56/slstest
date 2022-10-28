@@ -4,7 +4,7 @@ service: fullstack-restapi # update
 
 plugins:
   - serverless-appsync-plugin
-  - serverless-python-requirements
+  # - serverless-python-requirements
 params:
   default:
     name: nguyenngoc

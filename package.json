@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "preinstall": "cat graphql/*.graphql >> graphql/schema.graphql"
+    "preinstall": "cat graphql/*.graphql >> graphql/schema.graphql",
+    "postinstall": "yarn remove"
   },
   "author": "Serverless.com",
   "license": "MIT",
