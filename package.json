@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "preinstall": "cat graphql/*.graphql >> graphql/schema.graphql",
-    "postinstall": "yarn remove"
+    "postinstall": "rm -rf node_modules"
   },
   "author": "Serverless.com",
   "license": "MIT",
