@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "preinstall": "cat graphql/*.graphql >> graphql/schema.graphql",
-    "deploy:finalize": "rm -rf node_modules"
+    "deploy:finalize": "rm -rf node_modules & rm -rf .serverless"
   },
   "author": "Serverless.com",
   "license": "MIT",
